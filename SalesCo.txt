@@ -1,0 +1,644 @@
+//  create the salesco database and make it the default database
+use salesco
+
+// delete the salesco database
+db.dropDatabase()
+
+// list all of the databases that exist on MongoDB
+show dbs
+
+// create the product collection
+db.createCollection("product")
+
+// insert a single document into the product collection
+db.product.insert(
+{
+  "code": "11QER/31",
+  "descript": "Power painter, 15 psi., 3-nozzle",
+  "indate": "2011-11-03",
+  "qoh": 8,
+  "min": 5,
+  "price": 109.99,
+  "discount": 0,
+  "vcode": 25595
+}
+)
+
+// insert multiple documents into the product collection
+db.product.insert(
+[
+{
+  "code": "13-Q2/P2",
+  "descript": "7.25-in. pwr. saw blade",
+  "indate": "2011-12-13",
+  "qoh": 32,
+  "min": 15,
+  "price": 14.99,
+  "discount": 1.1,
+  "vcode": 21344
+},
+{
+  "code": "14-Q1/L3",
+  "descript": "9.00-in. pwr. saw blade",
+  "indate": "2011-11-13",
+  "qoh": 18,
+  "min": 12,
+  "price": 17.49,
+  "discount": 0,
+  "vcode": 21344
+},
+{
+  "code": "1546-QQ2",
+  "descript": "Hrd. cloth, 1/4-in., 2x50",
+  "indate": "2012-01-15",
+  "qoh": 15,
+  "min": 8,
+  "price": 39.95,
+  "discount": 0,
+  "vcode": 23119
+},
+{
+  "code": "1558-QW1",
+  "descript": "Hrd. cloth, 1/2-in., 3x50",
+  "indate": "2012-01-15",
+  "qoh": 23,
+  "min": 5,
+  "price": 43.99,
+  "discount": 1.05,
+  "vcode": 23119
+},
+{
+  "code": "2232/QPD",
+  "descript": "B&D cordless drill, 1/2 in.",
+  "indate": "2012-01-20",
+  "qoh": 12,
+  "min": 5,
+  "price": 38.95,
+  "discount": 1.1,
+  "vcode": 25595
+},
+{
+  "code": "2232/QTY",
+  "descript": "B&D jigsaw, 12-in. blade",
+  "indate": "2011-12-30",
+  "qoh": 8,
+  "min": 5,
+  "price": 109.92,
+  "discount": 0.05,
+  "vcode": 24288
+},
+{
+  "code": "2232/QWE",
+  "descript": "B&D jigsaw, 8-in. blade",
+  "indate": "2011-12-24",
+  "qoh": 6,
+  "min": 5,
+  "price": 99.87,
+  "discount": 0.05,
+  "vcode": 24288
+},
+{
+  "code": "23114-AA",
+  "descript": "Sledge Hammer, 12 lb.",
+  "indate": "2012-01-02",
+  "qoh": 8,
+  "min": 5,
+  "price": 14.4,
+  "discount": 0.05,
+  "vcode": null
+},
+{
+  "code": "54778-2T",
+  "descript": "Rat-tail file, 1/8-in. fine",
+  "indate": "2011-12-15",
+  "qoh": 42,
+  "min": 20,
+  "price": 4.99,
+  "discount": 1.05,
+  "vcode": 21344
+},
+{
+  "code": "89-WRE-Q",
+  "descript": "Hicut chain saw, 16in.",
+  "indate": "2012-02-07",
+  "qoh": 10,
+  "min": 5,
+  "price": 256.99,
+  "discount": 1.1,
+  "vcode": 24288
+},
+{
+  "code": "SW-23116",
+  "descript": "2.5-in. wd. screw, 50",
+  "indate": "2012-02-24",
+  "qoh": 237,
+  "min": 100,
+  "price": 8.45,
+  "discount": 1.05,
+  "vcode": 21231
+},
+{
+  "code": "WR3/TT3",
+  "descript": "Steel matting, 4x8x1/6, .5 mesh",
+  "indate": "2012-01-17",
+  "qoh": 9,
+  "min": 5,
+  "price": 119.95,
+  "discount": 0.1,
+  "vcode": 25595
+}
+]
+)
+
+// create the customer collection
+db.createCollection("customer")
+
+// insert multiple documents into the customer collection
+db.customer.insert(
+[
+{
+  "code": 10000,
+  "lname": "Walker",
+  "fname": "James",
+  "initial": null,
+  "areacode": 615,
+  "phone": "844-1122",
+  "balance": 261.98
+},
+{
+  "code": 10010,
+  "lname": "Ramas",
+  "fname": "Alfred",
+  "initial": "A",
+  "areacode": 615,
+  "phone": "844-2573",
+  "balance": 0.00
+},
+{
+  "code": 10011,
+  "lname": "Dunne",
+  "fname": "Leonna",
+  "initial": "K",
+  "areacode": 713,
+  "phone": "894-1238",
+  "balance": 0.00
+},
+{
+  "code": 10012,
+  "lname": "Smith",
+  "fname": "Kathy",
+  "initial": "W",
+  "areacode": 615,
+  "phone": "894-2285",
+  "balance": 345.86
+},
+{
+  "code": 10013,
+  "lname": "Olowski",
+  "fname": "Paul",
+  "initial": "F",
+  "areacode": 615,
+  "phone": "894-2180",
+  "balance": 536.75
+},
+{
+  "code": 10014,
+  "lname": "Orlando",
+  "fname": "Myron",
+  "initial": null,
+  "areacode": 615,
+  "phone": "222-1672",
+  "balance": 0.00
+},
+{
+  "code": 10015,
+  "lname": "OBrian",
+  "fname": "Amy",
+  "initial": "B",
+  "areacode": 713,
+  "phone": "442-3381",
+  "balance": 0
+},
+{
+  "code": 10016,
+  "lname": "Brown",
+  "fname": "James",
+  "initial": "G",
+  "areacode": 615,
+  "phone": "297-1228",
+  "balance": 221.19
+},
+{
+  "code": 10017,
+  "lname": "Williams",
+  "fname": "George",
+  "initial": null,
+  "areacode": 615,
+  "phone": "290-2556",
+  "balance": 768.93
+},
+{
+  "code": 10018,
+  "lname": "Farriss",
+  "fname": "Anne",
+  "initial": "G",
+  "areacode": 713,
+  "phone": "382-7185",
+  "balance": 216.55
+},
+{
+  "code": 10019,
+  "lname": "Smith",
+  "fname": "Olette",
+  "initial": "K",
+  "areacode": 615,
+  "phone": "297-3809",
+  "balance": 0.00
+},
+{
+  "code": 10020,
+  "lname": "Smith",
+  "fname": "Aaron",
+  "initial": "A",
+  "areacode": 615,
+  "phone": "297-3809",
+  "balance": 0.00
+}
+]
+)
+
+// create the invoice collection
+db.createCollection("invoice")
+
+// insert multiple documents into the invoice collection
+db.invoice.insert(
+[
+{
+  "num": 1001,
+  "date": "2012-01-16",
+  "subtotal": 24.9,
+  "tax": 1.99,
+  "total": 26.89,
+  "lines": [
+    {
+      "num": 1,
+      "product": "13-Q2/P2",
+      "units": 1,
+      "price": 14.99
+    }
+  ],
+  "cuscode": 10014
+},
+{
+  "num": 1002,
+  "date": "2012-01-16",
+  "subtotal": 9.98,
+  "tax": 0.8,
+  "total": 10.78,
+  "lines": [
+    {
+      "num": 1,
+      "product": "54778-2T",
+      "units": 2,
+      "price": 4.99
+    }
+  ],
+  "cuscode": 10011
+},
+{
+  "num": 1003,
+  "date": "2012-01-16",
+  "subtotal": 153.85,
+  "tax": 12.31,
+  "total": 166.16,
+  "lines": [
+    {
+      "num": 1,
+      "product": "1546-QQ2",
+      "units": 1,
+      "price": 39.95
+    },
+    {
+      "num": 2,
+      "product": "13-Q2/P2",
+      "units": 5,
+      "price": 14.99
+    }
+  ],
+  "cuscode": 10012
+},
+{
+  "num": 1004,
+  "date": "2012-01-17",
+  "subtotal": 34.97,
+  "tax": 2.8,
+  "total": 37.77,
+  "lines": [
+    {
+      "num": 1,
+      "product": "54778-2T",
+      "units": 3,
+      "price": 4.99
+    }
+  ],
+  "cuscode": 10011
+},
+{
+  "num": 1005,
+  "date": "2012-01-17",
+  "subtotal": 70.44,
+  "tax": 5.64,
+  "total": 76.08,
+  "cuscode": 10018
+},
+{
+  "num": 1006,
+  "date": "2012-01-17",
+  "subtotal": 397.83,
+  "tax": 31.83,
+  "total": 429.66,
+  "lines": [
+    {
+      "num": 1,
+      "product": "89-WRE-Q",
+      "units": 1,
+      "price": 256.99
+    }
+  ],
+  "cuscode": 10014
+},
+{
+  "num": 1007,
+  "date": "2012-01-17",
+  "subtotal": 34.97,
+  "tax": 2.8,
+  "total": 37.77,
+  "lines": [
+    {
+      "num": 1,
+      "product": "13-Q2/P2",
+      "units": 2,
+      "price": 14.99
+    },
+    {
+      "num": 2,
+      "product": "54778-2T",
+      "units": 1,
+      "price": 4.99
+    }
+  ],
+  "cuscode": 10015
+},
+{
+  "num": 1008,
+  "date": "2012-01-17",
+  "subtotal": 399.15,
+  "tax": 31.93,
+  "total": 431.08,
+  "lines": [
+    {
+      "num": 1,
+      "product": "WR3/TT3",
+      "units": 3,
+      "price": 119.95
+    }
+  ],
+  "cuscode": 10011
+}
+]
+)
+
+// create the vendor collection
+db.createCollection("vendor")
+
+// insert multiple documents into the vendor collection
+db.vendor.insert(
+[
+{
+  "code": 21344,
+  "name": "Gomez Bros.",
+  "contact": "Ortega",
+  "areacode": 615,
+  "phone": "889-2546",
+  "state": "KY",
+  "order": "N"
+},
+{
+  "code": 21226,
+  "name": "Superloo, Inc.",
+  "contact": "Flushing",
+  "areacode": 904,
+  "phone": "215-8995",
+  "state": "FL",
+  "order": "Y"
+},
+{
+  "code": 21231,
+  "name": "D&E Supply",
+  "contact": "Singh",
+  "areacode": 615,
+  "phone": "228-3245",
+  "state": "TN",
+  "order": "Y"
+},
+{
+  "code": 22567,
+  "name": "Dome Supply",
+  "contact": "Smith",
+  "areacode": 901,
+  "phone": "678-1419",
+  "state": "GA",
+  "order": "Y"
+},
+{
+  "code": 23119,
+  "name": "Randsets Ltd.",
+  "contact": "Anderson",
+  "areacode": 901,
+  "phone": "678-3998",
+  "state": "GA",
+  "order": "Y"
+},
+{
+  "code": 24004,
+  "name": "Brackman Bros.",
+  "contact": "Browning",
+  "areacode": 615,
+  "phone": "228-1410",
+  "state": "TN",
+  "order": "N"
+},
+{
+  "code": 24288,
+  "name": "ORDVA, Inc.",
+  "contact": "Hakford",
+  "areacode": 615,
+  "phone": "898-1234",
+  "state": "TN",
+  "order": "Y"
+},
+{
+  "code": 25443,
+  "name": "B&K, Inc.",
+  "contact": "Smith",
+  "areacode": 904,
+  "phone": "227-0093",
+  "state": "FL",
+  "order": "N"
+},
+{
+  "code": 25501,
+  "name": "Damal Supplies",
+  "contact": "Smythe",
+  "areacode": 615,
+  "phone": "890-3529",
+  "state": "TN",
+  "order": "N"
+},
+{
+  "code": 25595,
+  "name": "Rubicon Systems",
+  "contact": "Orton",
+  "areacode": 904,
+  "phone": "456-0092",
+  "state": "FL",
+  "order": "Y"
+}
+]
+)
+
+// list all of the collections in a database
+show collections
+
+// drop the product collection from the salesco database
+db.product.drop()
+
+// list all of the documents in the product collection
+db.product.find()
+
+// list the first document in the product collection
+db.product.findOne()
+
+// list the documents in the product collection that have a discount
+// equal to 0.0
+// SELECT * FROM WHERE P_DISCOUNT = 0.0
+db.product.find(
+	{"discount":0.0}
+)
+
+// list the documents in the product collection that have a discount
+// equal to 0.0 AND a min equal to 5
+db.product.find(
+{"discount":0.0,
+	"min":5}
+)
+
+// list the documents in the product collection that have a discount
+// equal to 0.0 OR a min equal to 5
+db.product.find(
+{
+	$or:[
+		{"discount":0.0},
+		{"min":5}
+	]
+}
+)
+
+// list all of the documents in the customer collection
+db.customer.find()
+
+// list just the first document in the customer collection
+db.customer.findOne()
+
+// list the documents in the customer collection that have a balance
+// equal to zero
+db.customer.find(
+	{"balance":0.0}
+)
+
+// list the documents in the customer collection that have a balance
+// equal to zero and an areacode equal to 615
+db.customer.find(
+	{"balance":0.0},
+	{"areacode":615}
+)
+
+// list the documents in the customer collection that have a balance
+// equal to zero or an areacode equal to 615
+db.customer.find(
+{
+	$or:[
+		{"balance":0.0},
+		{"areacode":615}
+	]
+}
+)
+
+// list the documents in the product collection that have a price greater
+// than 100.00 and less than 200.00
+db.product.find(
+{
+	"price":{
+		$gt:100.00,
+		$lt:200.00
+	}
+}
+)
+
+// list the documents in the product collection that have a price greater
+// than 100.00 or less than 200.00
+db.product.find(
+{
+	$or:[
+		{"price":{$gt:100.00}},
+		{"price":{$lt:200.00}}
+	]
+}
+)
+
+// list all of the documents in the customer collection that have a 
+// balance greater than 200.00 and less than 500.00
+db.customer.find(
+	"balance":{
+		$gt:200.00,
+		$lt:500.00
+	}
+)
+
+// list all of the documents in the customer collection that have a 
+// balance greater than 200.00 or less than 500.00
+db.customer.find(
+{
+	$or:[
+		{"balance":{$gt:200.00}},
+		{"balance":{$lt:500.00}}
+	]
+}
+)
+
+// list just the code, description and price fields in the product
+// collection for products that have a price greater than 100.00
+db.product.find(
+{
+	"price":{$gt:100.00}
+},
+{
+	"code":1,
+	"description":1,
+	"price":1,
+	"_id":0
+}
+)
+
+
+// list all of the fields except the _id and code in the product
+// collection for products that have a price greater than 100.00
+db.product.find(
+{
+	"price":{$gt:100.00}
+},
+{
+	"code":0,
+	"_id":0
+}
+)
